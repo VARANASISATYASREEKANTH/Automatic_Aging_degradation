@@ -94,6 +94,15 @@ This repository explains how **spectrograms of ECG (Electrocardiogram) signals**
 By converting ECG waveforms into time–frequency representations, we can visually and algorithmically detect abnormal patterns related to heart rhythm and morphology.
 
 ---
+## ⚙️ ECG Frequency Components Reference
+
+| **ECG Component**  | **Typical Frequency Range (Hz)** |
+| ------------------ | -------------------------------- |
+| P wave             | 0.5 – 10                         |
+| QRS complex        | 8 – 50                           |
+| T wave             | 1 – 7                            |
+| Muscle noise / EMG | > 50                             |
+| Baseline drift     | < 0.5                            |
 
 ## 🔍 1. What Is a Spectrogram?
 
