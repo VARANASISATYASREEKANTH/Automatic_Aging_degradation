@@ -158,6 +158,57 @@ Spectrograms reveal how these frequencies change over time — which is highly u
    Metrics like spectral entropy, variance, and dominant frequency help detect irregularities.
 
 ---
+## 📘 References
+
+1. **Goldberger, A. L., et al. (2000).**  
+   *PhysioBank, PhysioToolkit, and PhysioNet: Components of a New Research Resource for Complex Physiologic Signals.*  
+   _Circulation_, 101(23), e215–e220.  
+   [https://physionet.org](https://physionet.org)
+
+2. **Moody, G. B., & Mark, R. G. (2001).**  
+   *The impact of the MIT-BIH Arrhythmia Database.*  
+   _IEEE Engineering in Medicine and Biology Magazine_, 20(3), 45–50.  
+   [DOI:10.1109/51.932724](https://doi.org/10.1109/51.932724)
+
+3. **Acharya, U. R., et al. (2017).**  
+   *A deep convolutional neural network model to classify heartbeats.*  
+   _Computers in Biology and Medicine_, 89, 389–396.  
+   [DOI:10.1016/j.compbiomed.2017.08.022](https://doi.org/10.1016/j.compbiomed.2017.08.022)
+
+4. **Minami, K., Nakajima, H., & Toyoshima, T. (1999).**  
+   *Real-time discrimination of ventricular tachyarrhythmia with Fourier-transform neural network.*  
+   _IEEE Transactions on Biomedical Engineering_, 46(2), 179–185.  
+   [DOI:10.1109/10.740875](https://doi.org/10.1109/10.740875)
+
+5. **Zhang, Z., et al. (2019).**  
+   *Heart sound classification using deep learning and time–frequency features.*  
+   _IEEE Access_, 7, 119857–119865.  
+   [DOI:10.1109/ACCESS.2019.2936014](https://doi.org/10.1109/ACCESS.2019.2936014)
+
+6. **Li, D., et al. (2020).**  
+   *Atrial fibrillation detection using spectrogram-based convolutional neural network.*  
+   _Frontiers in Physiology_, 11, 593.  
+   [DOI:10.3389/fphys.2020.00593](https://doi.org/10.3389/fphys.2020.00593)
+
+7. **Martis, R. J., Acharya, U. R., & Lim, C. M. (2013).**  
+   *ECG beat classification using PCA, LDA, ICA and discrete wavelet transform.*  
+   _Biomedical Signal Processing and Control_, 8(5), 437–448.  
+   [DOI:10.1016/j.bspc.2013.01.005](https://doi.org/10.1016/j.bspc.2013.01.005)
+
+8. **Oweis, R. J., & Abdulhay, E. (2011).**  
+   *Separation of cardiac and noise components from ECG signals by adaptive filtering and spectral analysis.*  
+   _Computers in Biology and Medicine_, 41(5), 432–441.  
+   [DOI:10.1016/j.compbiomed.2011.03.001](https://doi.org/10.1016/j.compbiomed.2011.03.001)
+
+9. **Clifford, G. D., et al. (2017).**  
+   *AF classification from a short single lead ECG recording: The PhysioNet Computing in Cardiology Challenge 2017.*  
+   _Computing in Cardiology Conference_, 44, 1–4.  
+   [https://physionet.org/challenge/2017/](https://physionet.org/challenge/2017/)
+
+10. **Rajpurkar, P., et al. (2017).**  
+    *Cardiologist-level arrhythmia detection with convolutional neural networks.*  
+    _Nature Medicine_, 25, 65–69.  
+    [DOI:10.1038/s41591-018-0268-3](https://doi.org/10.1038/s41591-018-0268-3)
 
 ## 📊 5. Example Analysis Flow
 
