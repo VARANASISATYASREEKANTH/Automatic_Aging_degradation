@@ -88,13 +88,87 @@ Spectrogram analysis provides a visual and quantitative way to observe **autonom
 - Reduced **baroreflex sensitivity**  
 - Lower **sympathetic reactivity**
 
-Researchers can extract **time–frequency features** (e.g., LF/HF ratios, entropy, spectral power) from these spectrograms to model **“autonomic age”** or detect **early signs of dysautonomia**.
+# 🩺 ECG Spectrogram Anomaly Detection
+
+This repository explains how **spectrograms of ECG (Electrocardiogram) signals** can be used to **detect cardiac anomalies**.  
+By converting ECG waveforms into time–frequency representations, we can visually and algorithmically detect abnormal patterns related to heart rhythm and morphology.
 
 ---
 
-## ⚙️ Spectrogram Generation Script
+## 🔍 1. What Is a Spectrogram?
 
-This repository includes a Python script:
+A **spectrogram** is a time–frequency representation of a signal.
 
-```bash
-spectrogram_plot.py
+- **X-axis:** Time (seconds)
+- **Y-axis:** Frequency (Hz)
+- **Color intensity:** Power (amplitude) of frequency components
+
+In ECG, most of the signal energy lies below **50 Hz**.  
+Spectrograms reveal how these frequencies change over time — which is highly useful for detecting anomalies.
+
+---
+
+## 💓 2. Normal ECG Spectrogram
+
+- Shows **periodic, low-frequency bursts** corresponding to the **P–QRS–T** complex.
+- Dominant frequency band: **0.5 – 40 Hz**.
+- Energy distribution is **cyclic and stable** across time.
+
+---
+
+## ⚠️ 3. Common ECG Anomalies Detectable via Spectrogram
+
+| **Anomaly Type** | **Spectrogram Features / Patterns** | **Physiological Meaning** |
+|------------------|-------------------------------------|----------------------------|
+| **Arrhythmia** | Non-periodic energy bursts; irregular spacing of QRS-related energy | Irregular heartbeat pattern |
+| **Atrial Fibrillation (AF)** | Continuous low-frequency energy (3–8 Hz) without periodic structure | Chaotic atrial activity |
+| **Ventricular Tachycardia (VT)** | Broad repetitive high-energy bands; reduced variability | Rapid ventricular rhythm |
+| **Bradycardia** | Long intervals between bursts | Slow heart rate |
+| **Tachycardia** | Closely spaced bursts; slightly higher power | Fast heart rate |
+| **Myocardial Ischemia (MI)** | Reduced energy in mid-frequency bands; altered QRS–T patterns | Damaged heart muscle conduction |
+| **Bundle Branch Block (LBBB/RBBB)** | Broadened QRS energy regions | Delayed ventricular conduction |
+| **Premature Ventricular Contraction (PVC)** | Isolated, high-energy spikes disrupting regular rhythm | Early abnormal beats |
+| **Noise / Muscle Artifact** | High-frequency (>40 Hz) random activity | EMG or motion interference |
+| **Baseline Wander** | Low-frequency (<0.5 Hz) oscillations | Electrode movement or breathing artifact |
+
+---
+
+## 🧠 4. Detection Approaches
+
+### (a) Manual / Visual Inspection
+- Experts can spot irregular periodicity, color changes, or abrupt frequency shifts in spectrograms.
+
+### (b) Automated Machine Learning Methods
+1. **Convolutional Neural Networks (CNNs):**  
+   Treat spectrograms as 2D images for classification (AF, PVC, etc.).
+2. **Autoencoders / VAEs:**  
+   Learn normal spectrograms and detect anomalies by reconstruction error.
+3. **Transformers (ViT):**  
+   Capture long-term temporal and spectral dependencies.
+4. **Statistical Features:**  
+   Metrics like spectral entropy, variance, and dominant frequency help detect irregularities.
+
+---
+
+## 📊 5. Example Analysis Flow
+
+```python
+import numpy as np
+from scipy import signal
+import matplotlib.pyplot as plt
+
+# Example ECG signal and sampling rate
+fs = 1000  # Hz
+ecg_signal = np.load('ecg_sample.npy')
+
+# Compute spectrogram
+frequencies, times, Sxx = signal.spectrogram(ecg_signal, fs=fs)
+
+# Plot
+plt.figure(figsize=(10, 4))
+plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx))
+plt.ylabel('Frequency [Hz]')
+plt.xlabel('Time [s]')
+plt.title('ECG Spectrogram')
+plt.colorbar(label='Power (dB)')
+plt.show()
